@@ -1,9 +1,15 @@
+import os
+import openai
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
+
+openai.api_key  = os.environ['OPENAI_API_KEY']
+
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
-
 
 
 
@@ -20,8 +26,8 @@ memory = ConversationBufferMemory(
     return_messages=True
 )
 
-def llm(llm_name=llm_name, temp=0):
-    llm = ChatOpenAI(model_name=llm_name, temperature=temp)
+def llm(llm_name=llm_name, temp=0,key=openai.api_key):
+    llm = ChatOpenAI(model_name=llm_name, temperature=temp,openai_api_key=key)
     return llm
 
 def qa_chain_from_promt(db, llm, promt=QA_CHAIN_PROMPT):
@@ -34,13 +40,11 @@ def qa_chain_from_promt(db, llm, promt=QA_CHAIN_PROMPT):
     return qa_chain
 
 
-def qa_retrival_chain(db, llm, memory=memory):
+def qa_retrival_chain(db, llm):
     qa= ConversationalRetrievalChain.from_llm(
         llm,
         chain_type="stuff",
-        retriever=db.as_retrivever(search_type="similarity",search_kwargs={"k": 5}),
-        memory= memory,
-        return_source_documents=True,
+        retriever=db.as_retriever(),
         return_generated_question=True
     )
     return qa
