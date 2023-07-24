@@ -4,6 +4,9 @@
 
 ***type 'end' or '\n' to exit***
 
+***Run eval.py for Accuracy using LLM***
+
+***Accuracy: 0.9117647058823529***
 
 
 ## Steps to build Model
