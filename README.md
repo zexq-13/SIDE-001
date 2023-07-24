@@ -34,6 +34,8 @@
 - Using Langchain chat models for queries
 - Using chat history for incoparating past data and forming a coversation than a single quention and done
 
+## Additional Features
+
 ### Evaulation
 - Run all the questions in SampleQuestions.xlsx and store results
 - Generate examples using LLMs from stored docs
