@@ -1,5 +1,11 @@
 # SIDE-001 
 
+***To run a demo use rundown.ipynb or Chatbot.py***
+
+***type 'end' or '\n' to exit***
+
+
+
 ## Steps to build Model
 
 ### Loading Data 
