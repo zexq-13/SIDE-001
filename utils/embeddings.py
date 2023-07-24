@@ -4,13 +4,10 @@ import sys
 
 from langchain.embeddings.openai import OpenAIEmbeddings
 
-
-
-
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
-openai.api_key  = os.environ['OPENAI_API_KEY']
+openai.api_key  = os.environ['OPENAI_API_KEY'] #Enter OpenAI key here
 
 def openai_embeddings(key=openai.api_key):
     return OpenAIEmbeddings(openai_api_key=key)
