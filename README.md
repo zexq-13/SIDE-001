@@ -35,6 +35,11 @@
 - Using chat history for incoparating past data and forming a coversation than a single quention and done
 
 ### Evaulation
-- 
+- Run all the questions in SampleQuestions.xlsx and store results
+- Generate examples using LLMs from stored docs
+- Evaluate results and examples by using llm and eval chain
+
+### Multilingual 
+- Create vector store using Cohere Embeddings instead of OpenAI for multilingual chatbot
 
 
